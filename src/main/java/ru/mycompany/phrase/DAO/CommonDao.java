@@ -1,0 +1,26 @@
+package ru.mycompany.phrase.DAO;
+
+
+import org.springframework.stereotype.Service;
+import ru.mycompany.phrase.domain.api.common.CommentResp;
+import ru.mycompany.phrase.domain.api.common.TagResp;
+
+import java.util.List;
+
+@Service
+public interface CommonDao {
+
+    long getUserIdByPhraseId(long phraseId);
+
+    boolean isBlocked(long userId, long checkBlockUserId);
+
+    List<CommentResp> getCommentsByPhraseId(long phraseId);
+
+    long getCountLikesByPhraseId(long phraseId);
+
+    List<TagResp> getTagsByPhraseId(long phraseId);
+
+    long getUserIdByToken(String accessToken);
+
+    void testSchedulerLock(String instanceName);
+}
